@@ -52,7 +52,7 @@ namespace comm {
                 pool.emplace_back(
                         [this] {
                             //工作线程函数
-                            while (this->is_stopped) {
+                            while (!this->is_stopped) {
                                 std::function<void()> task;
                                 {
                                     //获取一个待执行的task
